@@ -51,7 +51,7 @@ public class CardTest {
         int actual = -1;
         for (int i = 0; i < expected.length; i++) {
             actual = card[i].getNum();
-            assertTrue(expected[i] == actual);
+            assertTrue(!(expected[i] == actual));
         }
     }
 
@@ -61,7 +61,7 @@ public class CardTest {
         int actual = -1;
         for (int i = 0; i < expected.length; i++) {
             actual = card[i].getNum();
-            assertTrue(expected[i] == actual);
+            assertTrue(!(expected[i] == actual));
         }
     }
 
@@ -73,7 +73,7 @@ public class CardTest {
         int actual = -1;
         for (int i = 0; i < expected.length; i++) {
             actual = card[i].getNum();
-            assertTrue(expected[i] == actual);
+            assertTrue(!(expected[i] == actual));
         }
     }
 
