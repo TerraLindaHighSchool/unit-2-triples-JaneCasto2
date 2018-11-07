@@ -2,34 +2,59 @@ package com.example.bruce.triples_1_5;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Deck {
     private Card[] mOrderedDeck;
     private ArrayList<Card> mShuffledDeck;
+    private int mNumOfCardsInDeck;
+    private boolean debug = false;
 
-    public void createShuffledDeck()
+
+    Deck(int NumOfCardsInDeck)
     {
-        ArrayList<Card> ShuffledDeck = new ArrayList<Card>();
-        ShuffledDeck.remove(0);
-
-        if(ShuffledDeck.isEmpty())
-        {
-            ShuffledDeck.set(0, mOrderedDeck[0]);
-        }
-
-
-    }
-
-
-    Deck(int numOfCardsInDeck){
-        mOrderedDeck = new Card[numOfCardsInDeck + 1];
-        populateOrderedDeckWithCards(numOfCardsInDeck);
+        mOrderedDeck = new Card[NumOfCardsInDeck + 1];
+        populateOrderedDeckWithCards(NumOfCardsInDeck);
+        mShuffledDeck = new ArrayList<>();
         createShuffledDeck();
     }
 
-    public void getNumCardsInDeck()
+    public void createShuffledDeck()
     {
 
+        for(int i = 1; i < mNumOfCardsInDeck; i++)
+        {
+            mShuffledDeck.add(mOrderedDeck[i]);
+        }
+
+
+        if (mShuffledDeck.isEmpty())
+        {
+            mShuffledDeck.add(0, mOrderedDeck[0]);
+
+        } else {
+            Collections.shuffle(mShuffledDeck);
+        }
+    }
+
+    public Card getCard(int index)
+    {
+        return mShuffledDeck.get(index);
+    }
+
+
+    public Card getTopCard()
+    {
+        if (mShuffledDeck.get(0).equals(mOrderedDeck[0])) {
+            return mShuffledDeck.get(0);
+        } else {
+            return mShuffledDeck.remove(0);
+        }
+    }
+
+    public int getNumOfCardsInDeck()
+    {
+        return mShuffledDeck.size();
     }
 
 

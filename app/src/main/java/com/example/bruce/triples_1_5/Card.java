@@ -10,8 +10,8 @@ public class Card
     private int mNum, mAlpha;
     private int mSelectedImage, mImageID;
     private boolean mSelected = false;
-    protected enum Color {NO_COLOR, Red, Blue, Green};
-    protected enum Shape {NO_SHAPE, Triangle, Circle, Square};
+    protected enum Color {NO_COLOR, RED, BLUE, GREEN};
+    protected enum Shape {NO_SHAPE, TRIANGLE, CIRCLE, SQUARE};
 
     public Card(Shape shape, Color color, int num, int alpha, int selectedImage, int imageID)
     {

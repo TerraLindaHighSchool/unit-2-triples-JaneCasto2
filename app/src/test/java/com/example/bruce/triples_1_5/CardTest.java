@@ -8,13 +8,13 @@ public class CardTest {
 
 
     Card[] card = {
-            new Card(Card.Shape.Square, Card.Color.Red, 1, 0, (R.drawable.square_red_1_0), (R.drawable.square_red_1_0_selected)),
-            new Card(Card.Shape.Circle, Card.Color.Blue, 2, 1,  (R.drawable.circle_blue_1_0), (R.drawable.circle_blue_1_0_selected)),
-            new Card(Card.Shape.Triangle, Card.Color.Green, 3, 2, (R.drawable.triangle_green_3_2), (R.drawable.triangle_green_3_2_selected))};
+            new Card(Card.Shape.SQUARE, Card.Color.RED, 1, 0, (R.drawable.square_red_1_0), (R.drawable.square_red_1_0_selected)),
+            new Card(Card.Shape.CIRCLE, Card.Color.BLUE, 2, 1,  (R.drawable.circle_blue_1_0), (R.drawable.circle_blue_1_0_selected)),
+            new Card(Card.Shape.TRIANGLE, Card.Color.GREEN, 3, 2, (R.drawable.triangle_green_3_2), (R.drawable.triangle_green_3_2_selected))};
 
     @Test
     public void getColor() {
-        Card.Color[] expected = {Card.Color.Red, Card.Color.Blue, Card.Color.Green};
+        Card.Color[] expected = {Card.Color.RED, Card.Color.BLUE, Card.Color.GREEN};
         Card.Color actual = Card.Color.NO_COLOR;
         for (int i = 0; i < expected.length; i++) {
             actual = card[i].getColor();
@@ -25,7 +25,7 @@ public class CardTest {
 
     @Test
     public void getShape() {
-        Card.Shape[] expected = {Card.Shape.Square, Card.Shape.Circle, Card.Shape.Triangle};
+        Card.Shape[] expected = {Card.Shape.SQUARE, Card.Shape.CIRCLE, Card.Shape.TRIANGLE};
         Card.Shape actual = Card.Shape.NO_SHAPE;
         for (int i = 0; i < expected.length; i++) {
             actual = card[i].getShape();
