@@ -9,27 +9,59 @@ public class GameModel {
     private ArrayList<Integer> mSelectedCards;
     private long mStartTime;
     private int mScore, mTriplesRemaining, mLevel;
-    private int mNumOfCardsInDeck;
+    private int mNumOfCardsInDeck, mNumOfCardsSelected, mSelectedCardIndex, mSelectedImageID;
+    private boolean mIsSelected;
 
     GameModel(int numOfCardsInDeck, int level){
-        // to be implemented
+        deck = new Deck(numOfCardsInDeck);
+        mCardOnBoard = new ArrayList<>();
+        mSelectedCards = new ArrayList<>();
+        mScore = 0;
+        mTriplesRemaining = numOfCardsInDeck / 3;
+        mLevel = level;
+
     }
 
-/*************************************************
+
+    /*************************************************
  * Getters and Setters
  *************************************************/
 
 
+    public Card getCardOnBoard(int index) {
+        return mCardOnBoard.get(index);
+    }
+
+    public int getNumOfCardsInDeck() {
+        return mNumOfCardsInDeck;
+    }
+
+    public int getNumOfCardsSelected() {
+        return mNumOfCardsSelected;
+    }
+
+    public int getSelectedCardIndex(int index) {
+        return mSelectedCards.get(index);
+    }
+
+
+    public void setStartTime() {
+        mStartTime = System.currentTimeMillis();
+    }
+
+    public void setTriplesRemaining() {
+        mTriplesRemaining--;
+    }
 
     /*************************************************
      * Methods that place cards to board
      *************************************************/
     protected void addCardToBoard(){
-        // to be implemented
+        mCardOnBoard.add(deck.getTopCard());
     }
 
     protected void replaceCardOnBoard(int index){
-        // to be implemented
+        mCardOnBoard.set(index, deck.getTopCard());
     }
 
     /*************************************************
@@ -61,8 +93,11 @@ public class GameModel {
      *************************************************/
 
     protected boolean isTriple(int firstCard, int secondCard, int thirdCard){
-        // to be implemented
-        return true; // temporary placeholder until implementation
+        Card[] cards = {getCardOnBoard(firstCard), getCardOnBoard(secondCard), getCardOnBoard(thirdCard)};
+        return (cards[0].getColor().ordinal() + cards[1].getColor().ordinal() + cards[2].getColor().ordinal()) % 3 == 0
+                && (cards[0].getShape().ordinal() + cards[1].getShape().ordinal() + cards[2].getShape().ordinal()) % 3 == 0
+                && (cards[0].getNum() + cards[1].getNum() + cards[2].getNum()) % 3 == 0
+                && (cards[0].getAlpha() + cards[1].getAlpha() + cards[2].getAlpha()) % 3 == 0;
     }
 
     protected boolean playIsPossible(){

@@ -8,20 +8,20 @@ public class Card
     private Color mColor;
     private Shape mShape;
     private int mNum, mAlpha;
-    private int mSelectedImage, mImageID;
-    private boolean mSelected = false;
+    private int mSelectedImageID, mImageID;
+    private boolean mIsSelected = false;
     protected enum Color {NO_COLOR, RED, BLUE, GREEN};
     protected enum Shape {NO_SHAPE, TRIANGLE, CIRCLE, SQUARE};
 
-    public Card(Shape shape, Color color, int num, int alpha, int selectedImage, int imageID)
+    public Card(Shape shape, Color color, int num, int alpha, int selectedImageID, int imageID)
     {
         mShape = shape;
         mColor = color;
         mNum = num;
         mAlpha = alpha;
-        mSelectedImage = selectedImage;
+        mSelectedImageID = selectedImageID;
         mImageID = imageID;
-        mSelected = false;
+        mIsSelected = false;
     }
 
     public Color getColor() {
@@ -40,8 +40,8 @@ public class Card
         return mAlpha;
     }
 
-    public int getSelectedImage() {
-        return mSelectedImage;
+    public int getSelectedImageID() {
+        return mSelectedImageID;
     }
 
     public int getImageID() {
@@ -49,12 +49,12 @@ public class Card
         return mImageID;
     }
 
-    public void setSelected(boolean selected) {
-        mSelected = selected;
+    public void setIsSelected(boolean selected) {
+        mIsSelected = selected;
     }
 
-    public boolean getSelected() {
-        return mSelected;
+    public boolean getIsSelected() {
+        return mIsSelected;
     }
 
 }

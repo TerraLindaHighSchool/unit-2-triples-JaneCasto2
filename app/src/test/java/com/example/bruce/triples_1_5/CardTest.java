@@ -78,17 +78,17 @@ public class CardTest {
     }
 
     @Test
-    public void Selected() {
+    public void IsSelected() {
         boolean expected = false;
-        boolean actual = card[0].getSelected();
+        boolean actual = card[0].getIsSelected();
         assertTrue(!actual);
     }
 
     @Test
-    public void setSelected() {
+    public void setIsSelected() {
         boolean expected = true;
-        card[0].setSelected(true);
-        boolean actual = card[0].getSelected();
+        card[0].setIsSelected(true);
+        boolean actual = card[0].getIsSelected();
         assertTrue(actual);
     }
 
